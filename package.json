@@ -3,9 +3,24 @@
 	"displayName": "Dilsayar",
 	"description": "Dilsayar Grammar Language Support",
 	"version": "0.0.1",
+	"author": {
+		"email": "gecgelcem@outlook.com",
+		"name": "Cem Geçgel",
+		"url": "https://github.com/calestialgem"
+	},
+	"bugs": {
+		"url": "https://github.com/calestialgem/dilsayar.vscode/issues"
+	},
+	"homepage": "https://github.com/calestialgem/dilsayar.vscode",
+	"license": "GPL-3.0-or-later",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/calestialgem/dilsayar.vscode"
+	},
 	"engines": {
 		"vscode": "^1.69.0"
 	},
+	"publisher": "calestialgem",
 	"categories": [
 		"Programming Languages"
 	],
@@ -30,5 +45,6 @@
 				"path": "./syntaxes/dilsayar.tmLanguage.json"
 			}
 		]
-	}
+	},
+	"dependencies": {}
 }
