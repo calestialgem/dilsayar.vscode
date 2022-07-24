@@ -1,25 +1,34 @@
 {
-    "name": "DilsayarVSCode",
-    "displayName": "dilsayar",
-    "description": "Dilsayar Grammar Language Support",
-    "version": "0.0.1",
-    "engines": {
-        "vscode": "^1.69.0"
-    },
-    "categories": [
-        "Programming Languages"
-    ],
-    "contributes": {
-        "languages": [{
-            "id": "dilsayar",
-            "aliases": ["Dilsayar", "dilsayar"],
-            "extensions": [".dil"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "dilsayar",
-            "scopeName": "source.dilsayar",
-            "path": "./syntaxes/dilsayar.tmLanguage.json"
-        }]
-    }
+	"name": "dilsayar",
+	"displayName": "Dilsayar",
+	"description": "Dilsayar Grammar Language Support",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.69.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "dilsayar",
+				"aliases": [
+					"Dilsayar",
+					"dilsayar"
+				],
+				"extensions": [
+					".dil"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "dilsayar",
+				"scopeName": "source.dilsayar",
+				"path": "./syntaxes/dilsayar.tmLanguage.json"
+			}
+		]
+	}
 }
