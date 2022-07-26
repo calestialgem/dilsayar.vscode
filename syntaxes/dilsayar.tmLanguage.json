@@ -15,7 +15,7 @@
 			"end": "$"
 		},
 		"output": {
-			"begin": "#output\\b",
+			"begin": "output\\b",
 			"end": ";",
 			"beginCaptures": {
 				"0": { "name": "keyword.control.dilsayar" }
@@ -26,7 +26,7 @@
 			"patterns": [{ "include": "#string" }]
 		},
 		"start": {
-			"begin": "#start\\b",
+			"begin": "start\\b",
 			"end": ";",
 			"beginCaptures": {
 				"0": { "name": "keyword.control.dilsayar" }
@@ -37,7 +37,7 @@
 			"patterns": [{ "include": "#pattern" }]
 		},
 		"skip": {
-			"begin": "#skip\\b",
+			"begin": "skip\\b",
 			"end": ";",
 			"beginCaptures": {
 				"0": { "name": "keyword.control.dilsayar" }
@@ -65,10 +65,10 @@
 				{ "include": "#repeat" },
 				{ "include": "#group" },
 				{ "include": "#identifier" },
-				{ "include": "#wildcard" },
 				{ "include": "#string" },
-				{ "include": "#range" },
-				{ "include": "#character" }
+				{ "include": "#allset" },
+				{ "include": "#notset" },
+				{ "include": "#set" }
 			]
 		},
 		"alternative": {
@@ -93,11 +93,7 @@
 		},
 		"identifier": {
 			"name": "variable.name.dilsayar",
-			"match": "[a-zA-Z][a-zA-Z0-9_]*"
-		},
-		"wildcard": {
-			"name": "keyword.operator.dilsayar",
-			"match": "\\."
+			"match": "[A-Z][a-zA-Z]*"
 		},
 		"string": {
 			"name": "string.quoted.double.dilsayar",
@@ -105,34 +101,40 @@
 			"end": "\"",
 			"patterns": [
 				{
-					"include": "#escape"
+					"name": "constant.character.escape.dilsayar",
+					"match": "\\\\([0-9a-fA-F]{2}|[tn\\\\\"])"
 				}
 			]
 		},
-		"range": {
+		"allset": {
+			"name": "constant.character.escape.dilsayar",
+			"match": "\\."
+		},
+		"notset": {
 			"name": "string.quoted.other.dilsayar",
-			"begin": "\\[",
-			"end": "\\]",
+			"begin": "\\!'",
+			"end": "'",
 			"patterns": [
 				{
 					"include": "#escape"
 				},
-				{ "name": "keyword.operator.dilsayar", "match": "~" }
+				{ "name": "constant.character.escape.dilsayar", "match": "~" }
 			]
 		},
-		"character": {
-			"name": "string.quoted.single.dilsayar",
+		"set": {
+			"name": "string.quoted.other.dilsayar",
 			"begin": "'",
 			"end": "'",
 			"patterns": [
 				{
 					"include": "#escape"
-				}
+				},
+				{ "name": "constant.character.escape.dilsayar", "match": "~" }
 			]
 		},
 		"escape": {
 			"name": "constant.character.escape.dilsayar",
-			"match": "\\\\([0-9a-fA-F]{2}|.)"
+			"match": "\\\\([0-9a-fA-F]{2}|[tn\\\\'~])"
 		}
 	},
 	"scopeName": "source.dilsayar"
