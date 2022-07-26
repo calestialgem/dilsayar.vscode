@@ -6,7 +6,6 @@
 		{ "include": "#output" },
 		{ "include": "#start" },
 		{ "include": "#skip" },
-		{ "include": "#terminal" },
 		{ "include": "#rule" }
 	],
 	"repository": {
@@ -47,16 +46,6 @@
 				"0": { "name": "punctuation.terminator.statement.dilsayar" }
 			},
 			"patterns": [{ "include": "#pattern" }]
-		},
-		"terminal": {
-			"begin": "#terminal\\b",
-			"end": ";",
-			"beginCaptures": {
-				"0": { "name": "keyword.control.dilsayar" }
-			},
-			"endCaptures": {
-				"0": { "name": "punctuation.terminator.statement.dilsayar" }
-			}
 		},
 		"rule": {
 			"begin": "([a-zA-Z][a-zA-Z0-9_]*)([\\r\\n\\t ]*)(=)",
