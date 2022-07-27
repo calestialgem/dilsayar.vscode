@@ -6,6 +6,7 @@
 		{ "include": "#output" },
 		{ "include": "#start" },
 		{ "include": "#skip" },
+		{ "include": "#terminal" },
 		{ "include": "#rule" }
 	],
 	"repository": {
@@ -47,8 +48,18 @@
 			},
 			"patterns": [{ "include": "#pattern" }]
 		},
+		"terminal": {
+			"begin": "terminal\\b",
+			"end": ";",
+			"beginCaptures": {
+				"0": { "name": "keyword.control.dilsayar" }
+			},
+			"endCaptures": {
+				"0": { "name": "punctuation.terminator.statement.dilsayar" }
+			}
+		},
 		"rule": {
-			"begin": "([a-zA-Z][a-zA-Z0-9_]*)([\\r\\n\\t ]*)(=)",
+			"begin": "([A-Z][a-zA-Z]*)([\\r\\n\\t ]*)(=)",
 			"end": ";",
 			"beginCaptures": {
 				"1": { "name": "entity.name.type.dilsayar" },
@@ -61,21 +72,20 @@
 		},
 		"pattern": {
 			"patterns": [
-				{ "include": "#alternative" },
-				{ "include": "#repeat" },
+				{ "include": "#operators" },
+				{ "include": "#fixed_times" },
 				{ "include": "#group" },
 				{ "include": "#identifier" },
 				{ "include": "#string" },
-				{ "include": "#allset" },
 				{ "include": "#notset" },
 				{ "include": "#set" }
 			]
 		},
-		"alternative": {
+		"operators": {
 			"name": "keyword.operator.dilsayar",
 			"match": "\\?|\\+|\\*|\\|"
 		},
-		"repeat": {
+		"fixed_times": {
 			"name": "constant.numeric",
 			"match": "[1-9][0-9]*"
 		},
@@ -105,10 +115,6 @@
 					"match": "\\\\([0-9a-fA-F]{2}|[tn\\\\\"])"
 				}
 			]
-		},
-		"allset": {
-			"name": "constant.character.escape.dilsayar",
-			"match": "\\."
 		},
 		"notset": {
 			"name": "string.quoted.other.dilsayar",
