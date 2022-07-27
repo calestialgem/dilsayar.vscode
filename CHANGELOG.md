@@ -1,5 +1,14 @@
 # Change Log
 
+## [0.2.0]
+
+- Updated syntax highlighting.
+  - Removed `AllSet`.
+- Fixed syntax highlighting.
+  - Removed numbers and underscores from identifiers.
+  - Identifiers start with uppercase letters.
+- Refactored names in TextMate grammar.
+
 ## [0.1.0]
 
 - Updated syntax highlighting.
