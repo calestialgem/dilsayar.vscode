@@ -3,10 +3,8 @@
 	"name": "Dilsayar",
 	"patterns": [
 		{ "include": "#comments" },
-		{ "include": "#output" },
-		{ "include": "#start" },
 		{ "include": "#skip" },
-		{ "include": "#terminal" },
+		{ "include": "#start" },
 		{ "include": "#rule" }
 	],
 	"repository": {
@@ -14,28 +12,6 @@
 			"name": "comment.line.double-slash.dilsayar",
 			"begin": "//",
 			"end": "$"
-		},
-		"output": {
-			"begin": "output\\b",
-			"end": ";",
-			"beginCaptures": {
-				"0": { "name": "keyword.control.dilsayar" }
-			},
-			"endCaptures": {
-				"0": { "name": "punctuation.terminator.statement.dilsayar" }
-			},
-			"patterns": [{ "include": "#string" }]
-		},
-		"start": {
-			"begin": "start\\b",
-			"end": ";",
-			"beginCaptures": {
-				"0": { "name": "keyword.control.dilsayar" }
-			},
-			"endCaptures": {
-				"0": { "name": "punctuation.terminator.statement.dilsayar" }
-			},
-			"patterns": [{ "include": "#pattern" }]
 		},
 		"skip": {
 			"begin": "skip\\b",
@@ -48,15 +24,16 @@
 			},
 			"patterns": [{ "include": "#pattern" }]
 		},
-		"terminal": {
-			"begin": "terminal\\b",
+		"start": {
+			"begin": "start\\b",
 			"end": ";",
 			"beginCaptures": {
 				"0": { "name": "keyword.control.dilsayar" }
 			},
 			"endCaptures": {
 				"0": { "name": "punctuation.terminator.statement.dilsayar" }
-			}
+			},
+			"patterns": [{ "include": "#pattern" }]
 		},
 		"rule": {
 			"begin": "([A-Z][a-zA-Z]*)([\\r\\n\\t ]*)(=)",
