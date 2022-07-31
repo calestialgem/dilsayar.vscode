@@ -1,5 +1,12 @@
 # Change Log
 
+## [0.3.0]
+
+- Updated syntax highlighting.
+  - Removed `output` and `terminal`.
+- Fixed bracket matching.
+  - Removed square brackets.
+
 ## [0.2.0]
 
 - Updated syntax highlighting.
